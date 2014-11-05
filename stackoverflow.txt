@@ -1,0 +1,17 @@
+1)(st4ck0v3rfl0w) 
+I'm currently using <A> tags with jquery to initiate things like click events, etc.
+Example is <a href="#" class="someclass">Text</a>
+But I hate how the '#' makes the page jump to the top of the page...what can I do instead?
+
+Answer(BoltClock♦): 
+In jQuery, when you handle the click event, return false to stop the link from responding the 
+usual way prevent the default action, which is to visit the href attribute, from taking place 
+(per PoweRoy's comment and Erik's answer):
+
+$('a.someclass').click(function(e)
+{
+    // Special stuff to do when this link is clicked...
+
+    // Cancel the default action
+    e.preventDefault();
+});
